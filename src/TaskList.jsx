@@ -1,20 +1,13 @@
-import { tasks as lisTask } from './tasks'
-import { useState, useEffect } from 'react'
 
-function TaskList() {
-    const [tasks, setTasks] = useState([])
 
-    useEffect(() => {
-        setTasks(lisTask)
-    }, [])
-
+function TaskList({tasks}) {
     if (tasks.length === 0) {
         return
     }
     return (
         <div>
-            {tasks.map((el, i) =>
-                <div key={i}>
+            {tasks.map((el) =>
+                <div key={el.id}>
                     <h1>{el.title}</h1>
                     <p>{el.description}</p>
                 </div>)}
